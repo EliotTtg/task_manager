@@ -1,5 +1,3 @@
-from usuarios import usuario
-
 class Tarea:
     def __init__(self,titulo,descripcion,estado,fecha_creacion,fecha_limite,usuario_id,id = None):
         self._id = id
@@ -71,8 +69,6 @@ class Tarea:
 
 
 if __name__ == '__main__':
-    Usuario = usuario('Eliot', 'eliot@gmail.com', '123456', id=1)
-    print(Usuario)
 
     tarea1 = Tarea(
         titulo='Estudiar Flask',
@@ -80,6 +76,6 @@ if __name__ == '__main__':
         estado='pendiente',
         fecha_creacion='2025-06-13',
         fecha_limite='2025-06-20',
-        usuario_id=Usuario.id
+        usuario_id=1
     )
     print(tarea1)

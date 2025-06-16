@@ -1,41 +1,30 @@
-from usuarios import Usuario
 
 class Comentario:
-    def __init__(self,titulo,descripcion,estado,fecha_creacion,fecha_limite,usuario_id,id = None):
+    def __init__(self, contenido, fecha, tarea_id, usuario_id, id=None):
         self._id = id
-        self._titulo = titulo
-        self._descripcion = descripcion
-        self._estado = estado
-        self._fecha_creacion = fecha_creacion
-        self._fecha_limite = fecha_limite
+        self._contenido = contenido
+        self._fecha = fecha
+        self._tarea_id = tarea_id
         self._usuario_id = usuario_id
-        
+
     def __str__(self):
-        return f'Comentario: [id: {self._id}, titulo: {self._titulo}, descripcion: {self._descripcion}, estado: {self._estado}, fecha_creacion: {self._fecha_creacion}, fecha_limite: {self._fecha_limite}, usuario_id: {self._usuario_id}]'
-    
+        return f'Comentario: [id: {self._id}, contenido: {self._contenido}, fecha: {self._fecha}, tarea_id: {self._tarea_id}, usuario_id: {self._usuario_id}]'
+
     @property
     def id(self):
         return self._id
 
     @property
-    def titulo(self):
-        return self._titulo
+    def contenido(self):
+        return self._contenido
 
     @property
-    def descripcion(self):
-        return self._descripcion
+    def fecha(self):
+        return self._fecha
 
     @property
-    def estado(self):
-        return self._estado
-
-    @property
-    def fecha_creacion(self):
-        return self._fecha_creacion
-
-    @property
-    def fecha_limite(self):
-        return self._fecha_limite
+    def tarea_id(self):
+        return self._tarea_id
 
     @property
     def usuario_id(self):
@@ -45,25 +34,17 @@ class Comentario:
     def id(self, id):
         self._id = id
 
-    @titulo.setter
-    def titulo(self, titulo):
-        self._titulo = titulo
+    @contenido.setter
+    def contenido(self, contenido):
+        self._contenido = contenido
 
-    @descripcion.setter
-    def descripcion(self, descripcion):
-        self._descripcion = descripcion
+    @fecha.setter
+    def fecha(self, fecha):
+        self._fecha = fecha
 
-    @estado.setter
-    def estado(self, estado):
-        self._estado = estado
-
-    @fecha_creacion.setter
-    def fecha_creacion(self, fecha_creacion):
-        self._fecha_creacion = fecha_creacion
-
-    @fecha_limite.setter
-    def fecha_limite(self, fecha_limite):
-        self._fecha_limite = fecha_limite
+    @tarea_id.setter
+    def tarea_id(self, tarea_id):
+        self._tarea_id = tarea_id
 
     @usuario_id.setter
     def usuario_id(self, usuario_id):
@@ -71,15 +52,11 @@ class Comentario:
 
 
 if __name__ == '__main__':
-    usuario1 = Usuario('Eliot', 'eliot@gmail.com', '123456', id=1)
-    print(usuario1)
 
     comentario = Comentario(
-        titulo='Estudiar Flask',
-        descripcion='Repasar rutas y conexión con base de datos',
-        estado='pendiente',
-        fecha_creacion='2025-06-13',
-        fecha_limite='2025-06-20',
-        usuario_id=usuario1.id
+        contenido='Buen avance en la tarea, solo falta el reporte final.',
+        fecha='2025-06-16',
+        tarea_id=1,
+        usuario_id=1
     )
     print(comentario)
