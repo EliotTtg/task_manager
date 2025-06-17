@@ -1,19 +1,15 @@
-from app.dao.usuario_dao import UsuarioDAO
-from app.models.usuarios import Usuario
-from app.models.tareas import Tarea
-from app.dao.tareas_dao import TareaDAO
 
-'''
-usuario = Usuario('pablo','jorge@gmail.com','123456')
-print(UsuarioDAO.insertar(usuario))
+from fastapi import FastAPI
+from app.router.usuarios_router import appUsuario
 
+app = FastAPI(
+    title='API TASK_MANAGER',
+    description='Este es un sistema básico de gestión de tareas usando Python, PostgreSQL y una estructura organizada en capas: modelos, DAOs y conexión a base de datos.',
+    version='0.0.1'
+)
 
-tarea = Tarea(titulo="Entregar informe mensual",
-    descripcion="Redactar y entregar el informe de avances del proyecto al supervisor.",
-    fecha_creacion="2025-06-16",
-    fecha_limite="2025-06-20",
-    usuario_id=1)
+app.include_router(appUsuario, prefix="/usuarios", tags=["Usuarios"])
 
-TareaDAO.insertar(tarea)
-
-'''
+@app.get("/",include_in_schema=False)
+def home():
+    return {"github":"https://github.com/EliotTtg"}

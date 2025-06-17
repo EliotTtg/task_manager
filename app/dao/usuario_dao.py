@@ -50,7 +50,7 @@ class UsuarioDAO:
                     return cursor.rowcount
         except Exception as e:
             print(f"❌ Error al eliminar usuario: {e}")
-            return 0
+            return None
         finally:
             ConexionDB.liberar_conexion(conexion)
             
