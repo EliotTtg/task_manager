@@ -1,7 +1,7 @@
 
 from fastapi import FastAPI
 from app.router.usuarios_router import appUsuario
-
+from app.router.auth_router import appAuth
 app = FastAPI(
     title='API TASK_MANAGER',
     description='Este es un sistema básico de gestión de tareas usando Python, PostgreSQL y una estructura organizada en capas: modelos, DAOs y conexión a base de datos.',
@@ -9,6 +9,7 @@ app = FastAPI(
 )
 
 app.include_router(appUsuario, prefix="/usuarios", tags=["Usuarios"])
+app.include_router(appAuth, tags=["Authentication"])
 
 @app.get("/",include_in_schema=False)
 def home():
